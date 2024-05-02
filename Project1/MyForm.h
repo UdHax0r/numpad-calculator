@@ -11,6 +11,7 @@ namespace Project1 {
 	using namespace System::Collections::Generic;
 
 	public ref class MyForm : public System::Windows::Forms::Form {
+
 	public:
 		MyForm();
 
@@ -18,50 +19,49 @@ namespace Project1 {
 		~MyForm(); // `protected` destructor.
 
 	private:
-		System::Windows::Forms::Button ^btnadd;
-
-		System::Windows::Forms::Button ^btnMulti;
-		System::Windows::Forms::Button ^btnDivide;
-		System::Windows::Forms::Button ^btnsub;
-		System::Windows::Forms::TextBox ^textBox1;
-
-		System::Windows::Forms::Button ^button1;
-		System::Windows::Forms::Panel ^panel1;
-		System::Windows::Forms::Button ^button8;
-		System::Windows::Forms::Button ^button7;
-		System::Windows::Forms::Button ^button5;
-		System::Windows::Forms::Button ^button4;
-		System::Windows::Forms::Button ^button6;
-		System::Windows::Forms::Button ^button3;
-		System::Windows::Forms::Button ^button2;
-		System::Windows::Forms::Button ^buttonEqual;
-		System::Windows::Forms::Button ^buttonCLEAR;
+#pragma region // Aaaaall the UI components' fields. From WinForms Designer.
+		System::Windows::Forms::Panel ^numpadPanel;
+		System::Windows::Forms::TextBox ^inputTextBox;
 
 		System::Windows::Forms::Button ^button0;
-
+		System::Windows::Forms::Button ^button1;
+		System::Windows::Forms::Button ^button2;
+		System::Windows::Forms::Button ^button3;
+		System::Windows::Forms::Button ^button4;
+		System::Windows::Forms::Button ^button5;
+		System::Windows::Forms::Button ^button6;
+		System::Windows::Forms::Button ^button7;
+		System::Windows::Forms::Button ^button8;
 		System::Windows::Forms::Button ^button9;
 
-	private:
+		System::Windows::Forms::Button ^btnAdd;
+		System::Windows::Forms::Button ^btnSub;
+		System::Windows::Forms::Button ^btnMulti;
+		System::Windows::Forms::Button ^btnDivide;
+		System::Windows::Forms::Button ^buttonEqual;
+		System::Windows::Forms::Button ^buttonClear;
+
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
+#pragma endregion 
 
-#pragma region Windows Form Designer generated code
+#pragma region // WinForms Designer-generated code.
 		/// <summary>
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
 		/// </summary>
 		void InitializeComponent(void) {
-			this->btnadd = (gcnew System::Windows::Forms::Button());
+			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->btnMulti = (gcnew System::Windows::Forms::Button());
 			this->btnDivide = (gcnew System::Windows::Forms::Button());
-			this->btnsub = (gcnew System::Windows::Forms::Button());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->btnSub = (gcnew System::Windows::Forms::Button());
+			this->inputTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->numpadPanel = (gcnew System::Windows::Forms::Panel());
 			this->buttonEqual = (gcnew System::Windows::Forms::Button());
-			this->buttonCLEAR = (gcnew System::Windows::Forms::Button());
+			this->buttonClear = (gcnew System::Windows::Forms::Button());
 			this->button0 = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->button8 = (gcnew System::Windows::Forms::Button());
@@ -71,21 +71,21 @@ namespace Project1 {
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->panel1->SuspendLayout();
+			this->numpadPanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
-			// btnadd
+			// btnAdd
 			// 
-			this->btnadd->BackColor = System::Drawing::Color::Green;
-			this->btnadd->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnAdd->BackColor = System::Drawing::Color::Green;
+			this->btnAdd->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnadd->Location = System::Drawing::Point(289, 30);
-			this->btnadd->Name = L"btnadd";
-			this->btnadd->Size = System::Drawing::Size(86, 66);
-			this->btnadd->TabIndex = 2;
-			this->btnadd->Text = L"+";
-			this->btnadd->UseVisualStyleBackColor = false;
-			this->btnadd->Click += gcnew System::EventHandler(this, &MyForm::btnadd_Click);
+			this->btnAdd->Location = System::Drawing::Point(289, 30);
+			this->btnAdd->Name = L"btnAdd";
+			this->btnAdd->Size = System::Drawing::Size(86, 66);
+			this->btnAdd->TabIndex = 2;
+			this->btnAdd->Text = L"+";
+			this->btnAdd->UseVisualStyleBackColor = false;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &MyForm::btnAdd_Click);
 			// 
 			// btnMulti
 			// 
@@ -98,14 +98,14 @@ namespace Project1 {
 			this->btnMulti->TabIndex = 10;
 			this->btnMulti->Text = L"x";
 			this->btnMulti->UseVisualStyleBackColor = false;
-			this->btnMulti->Click += gcnew System::EventHandler(this, &MyForm::btnMulti_Click);
+			this->btnMulti->Click += gcnew System::EventHandler(this, &MyForm::btnMultiply_Click);
 			// 
 			// btnDivide
 			// 
 			this->btnDivide->BackColor = System::Drawing::Color::Green;
 			this->btnDivide->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnDivide->Location = System::Drawing::Point(284, 250);
+			this->btnDivide->Location = System::Drawing::Point(289, 250);
 			this->btnDivide->Name = L"btnDivide";
 			this->btnDivide->Size = System::Drawing::Size(86, 66);
 			this->btnDivide->TabIndex = 11;
@@ -114,31 +114,31 @@ namespace Project1 {
 			this->btnDivide->UseWaitCursor = true;
 			this->btnDivide->Click += gcnew System::EventHandler(this, &MyForm::btnDivide_Click);
 			// 
-			// btnsub
+			// btnSub
 			// 
-			this->btnsub->BackColor = System::Drawing::Color::Green;
-			this->btnsub->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnSub->BackColor = System::Drawing::Color::Green;
+			this->btnSub->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnsub->Location = System::Drawing::Point(289, 102);
-			this->btnsub->Name = L"btnsub";
-			this->btnsub->Size = System::Drawing::Size(86, 66);
-			this->btnsub->TabIndex = 12;
-			this->btnsub->Text = L"-";
-			this->btnsub->UseVisualStyleBackColor = false;
-			this->btnsub->Click += gcnew System::EventHandler(this, &MyForm::btnsub_Click);
+			this->btnSub->Location = System::Drawing::Point(289, 102);
+			this->btnSub->Name = L"btnSub";
+			this->btnSub->Size = System::Drawing::Size(86, 66);
+			this->btnSub->TabIndex = 12;
+			this->btnSub->Text = L"-";
+			this->btnSub->UseVisualStyleBackColor = false;
+			this->btnSub->Click += gcnew System::EventHandler(this, &MyForm::btnSub_Click);
 			// 
-			// textBox1
+			// inputTextBox
 			// 
-			this->textBox1->Cursor = System::Windows::Forms::Cursors::No;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->inputTextBox->Cursor = System::Windows::Forms::Cursors::No;
+			this->inputTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(16, 29);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->ReadOnly = true;
-			this->textBox1->Size = System::Drawing::Size(386, 38);
-			this->textBox1->TabIndex = 0;
-			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
+			this->inputTextBox->Location = System::Drawing::Point(16, 29);
+			this->inputTextBox->Name = L"inputTextBox";
+			this->inputTextBox->ReadOnly = true;
+			this->inputTextBox->Size = System::Drawing::Size(386, 38);
+			this->inputTextBox->TabIndex = 0;
+			this->inputTextBox->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			this->inputTextBox->TextChanged += gcnew System::EventHandler(this, &MyForm::inputTextBox_TextChanged);
 			// 
 			// button1
 			// 
@@ -152,32 +152,32 @@ namespace Project1 {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
-			// panel1
+			// numpadPanel
 			// 
-			this->panel1->BackColor = System::Drawing::SystemColors::ControlDark;
-			this->panel1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->panel1->Controls->Add(this->buttonEqual);
-			this->panel1->Controls->Add(this->buttonCLEAR);
-			this->panel1->Controls->Add(this->button0);
-			this->panel1->Controls->Add(this->button9);
-			this->panel1->Controls->Add(this->button8);
-			this->panel1->Controls->Add(this->button7);
-			this->panel1->Controls->Add(this->btnadd);
-			this->panel1->Controls->Add(this->btnMulti);
-			this->panel1->Controls->Add(this->btnDivide);
-			this->panel1->Controls->Add(this->btnsub);
-			this->panel1->Controls->Add(this->button5);
-			this->panel1->Controls->Add(this->button4);
-			this->panel1->Controls->Add(this->button6);
-			this->panel1->Controls->Add(this->button3);
-			this->panel1->Controls->Add(this->button2);
-			this->panel1->Controls->Add(this->button1);
-			this->panel1->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->panel1->Location = System::Drawing::Point(12, 97);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(386, 332);
-			this->panel1->TabIndex = 16;
+			this->numpadPanel->BackColor = System::Drawing::SystemColors::ControlDark;
+			this->numpadPanel->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->numpadPanel->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->numpadPanel->Controls->Add(this->buttonEqual);
+			this->numpadPanel->Controls->Add(this->buttonClear);
+			this->numpadPanel->Controls->Add(this->button0);
+			this->numpadPanel->Controls->Add(this->button9);
+			this->numpadPanel->Controls->Add(this->button8);
+			this->numpadPanel->Controls->Add(this->button7);
+			this->numpadPanel->Controls->Add(this->btnAdd);
+			this->numpadPanel->Controls->Add(this->btnMulti);
+			this->numpadPanel->Controls->Add(this->btnDivide);
+			this->numpadPanel->Controls->Add(this->btnSub);
+			this->numpadPanel->Controls->Add(this->button5);
+			this->numpadPanel->Controls->Add(this->button4);
+			this->numpadPanel->Controls->Add(this->button6);
+			this->numpadPanel->Controls->Add(this->button3);
+			this->numpadPanel->Controls->Add(this->button2);
+			this->numpadPanel->Controls->Add(this->button1);
+			this->numpadPanel->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->numpadPanel->Location = System::Drawing::Point(12, 97);
+			this->numpadPanel->Name = L"numpadPanel";
+			this->numpadPanel->Size = System::Drawing::Size(386, 332);
+			this->numpadPanel->TabIndex = 16;
 			// 
 			// buttonEqual
 			// 
@@ -189,19 +189,19 @@ namespace Project1 {
 			this->buttonEqual->TabIndex = 16;
 			this->buttonEqual->Text = L"=";
 			this->buttonEqual->UseVisualStyleBackColor = true;
-			this->buttonEqual->Click += gcnew System::EventHandler(this, &MyForm::button12_Click);
+			this->buttonEqual->Click += gcnew System::EventHandler(this, &MyForm::buttonEqual_Click);
 			// 
-			// buttonCLEAR
+			// buttonClear
 			// 
-			this->buttonCLEAR->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->buttonClear->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->buttonCLEAR->Location = System::Drawing::Point(100, 250);
-			this->buttonCLEAR->Name = L"buttonCLEAR";
-			this->buttonCLEAR->Size = System::Drawing::Size(86, 66);
-			this->buttonCLEAR->TabIndex = 15;
-			this->buttonCLEAR->Text = L"CE";
-			this->buttonCLEAR->UseVisualStyleBackColor = true;
-			this->buttonCLEAR->Click += gcnew System::EventHandler(this, &MyForm::buttonClear_Click);
+			this->buttonClear->Location = System::Drawing::Point(100, 250);
+			this->buttonClear->Name = L"buttonClear";
+			this->buttonClear->Size = System::Drawing::Size(86, 66);
+			this->buttonClear->TabIndex = 15;
+			this->buttonClear->Text = L"CE";
+			this->buttonClear->UseVisualStyleBackColor = true;
+			this->buttonClear->Click += gcnew System::EventHandler(this, &MyForm::buttonClear_Click);
 			// 
 			// button0
 			// 
@@ -317,50 +317,51 @@ namespace Project1 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->ClientSize = System::Drawing::Size(414, 441);
-			this->Controls->Add(this->panel1);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->numpadPanel);
+			this->Controls->Add(this->inputTextBox);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Calculator";
-			this->panel1->ResumeLayout(false);
+			this->numpadPanel->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 
-#pragma region Our code.
-
+#pragma region // `MyForm`'s custom non-designer stuff!
 	private:
 		//List<char> ^opChars = gcnew List<char>{ '+', '-' };
 		double num1, num2;
 		bool canCalculate;
 		String ^sign;
 
+#pragma region // Numpad buttons callbacks.
+		System::Void button0_Click(System::Object ^sender, System::EventArgs ^e);
 		System::Void button1_Click(System::Object ^sender, System::EventArgs ^e);
-
 		System::Void button2_Click(System::Object ^sender, System::EventArgs ^e);
-
 		System::Void button3_Click(System::Object ^sender, System::EventArgs ^e);
-
 		System::Void button4_Click(System::Object ^sender, System::EventArgs ^e);
-
 		System::Void button5_Click(System::Object ^sender, System::EventArgs ^e);
 		System::Void button6_Click(System::Object ^sender, System::EventArgs ^e);
 		System::Void button7_Click(System::Object ^sender, System::EventArgs ^e);
 		System::Void button8_Click(System::Object ^sender, System::EventArgs ^e);
 		System::Void button9_Click(System::Object ^sender, System::EventArgs ^e);
+#pragma endregion
 
-		System::Void button0_Click(System::Object ^sender, System::EventArgs ^e);
-
-		System::Void buttonClear_Click(System::Object ^sender, System::EventArgs ^e);
-		System::Void btnadd_Click(System::Object ^sender, System::EventArgs ^e);
-		System::Void btnsub_Click(System::Object ^sender, System::EventArgs ^e);
-		System::Void btnMulti_Click(System::Object ^sender, System::EventArgs ^e);
+#pragma region // Operations buttons callbacks.
+		System::Void btnAdd_Click(System::Object ^sender, System::EventArgs ^e);
+		System::Void btnSub_Click(System::Object ^sender, System::EventArgs ^e);
 		System::Void btnDivide_Click(System::Object ^sender, System::EventArgs ^e);
-		System::Void button12_Click(System::Object ^sender, System::EventArgs ^e);
-		System::Void textBox1_TextChanged(System::Object ^sender, System::EventArgs ^e);
+		System::Void btnMultiply_Click(System::Object ^sender, System::EventArgs ^e);
+		System::Void buttonEqual_Click(System::Object ^sender, System::EventArgs ^e);
+		System::Void buttonClear_Click(System::Object ^sender, System::EventArgs ^e);
+#pragma endregion
+
+#pragma region // Other components' callbacks.
+		System::Void inputTextBox_TextChanged(System::Object ^sender, System::EventArgs ^e);
+#pragma endregion
 #pragma endregion
 
 	};

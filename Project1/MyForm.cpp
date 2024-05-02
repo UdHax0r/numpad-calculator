@@ -14,6 +14,7 @@ void main(array<String ^> ^args) {
 
 namespace Project1 {
 
+#pragma region // `MyForm`'s methods.
 	MyForm::MyForm() {
 		this->InitializeComponent();
 	}
@@ -23,120 +24,128 @@ namespace Project1 {
 			delete this->components;
 	}
 
+#pragma region // Numpad buttons callbacks.
+	System::Void MyForm::button0_Click(System::Object ^sender, System::EventArgs ^e) {
+		inputTextBox->Text += "0";
+	}
+
 	System::Void MyForm::button1_Click(System::Object ^sender, System::EventArgs ^e) {
-		textBox1->Text = textBox1->Text + "1";
+		inputTextBox->Text += "1";
 	}
 
 	System::Void MyForm::button2_Click(System::Object ^sender, System::EventArgs ^e) {
-		textBox1->Text = textBox1->Text + "2";
+		inputTextBox->Text += "2";
 	}
 
 	System::Void MyForm::button3_Click(System::Object ^sender, System::EventArgs ^e) {
-		textBox1->Text = textBox1->Text + "3";
+		inputTextBox->Text += "3";
 	}
 
 	System::Void MyForm::button4_Click(System::Object ^sender, System::EventArgs ^e) {
-		textBox1->Text = textBox1->Text + "4";
+		inputTextBox->Text += "4";
 	}
 
 	System::Void MyForm::button5_Click(System::Object ^sender, System::EventArgs ^e) {
-		textBox1->Text = textBox1->Text + "5";
+		inputTextBox->Text += "5";
 	}
 
 	System::Void MyForm::button6_Click(System::Object ^sender, System::EventArgs ^e) {
-		textBox1->Text = textBox1->Text + "6";
+		inputTextBox->Text += "6";
 	}
 
 	System::Void MyForm::button7_Click(System::Object ^sender, System::EventArgs ^e) {
-
-		textBox1->Text = textBox1->Text + "7";
+		inputTextBox->Text += "7";
 	}
 
 	System::Void MyForm::button8_Click(System::Object ^sender, System::EventArgs ^e) {
-		textBox1->Text = textBox1->Text + "8";
+		inputTextBox->Text += "8";
 	}
 
 	System::Void MyForm::button9_Click(System::Object ^sender, System::EventArgs ^e) {
-		textBox1->Text = textBox1->Text + "9";
+		inputTextBox->Text += "9";
+	}
+#pragma endregion
 
+#pragma region // Operations buttons.
+	System::Void MyForm::btnAdd_Click(System::Object ^sender, System::EventArgs ^e) {
+		if (inputTextBox->Text != "") {
+
+			num1 = System::Convert::ToDouble(inputTextBox->Text);
+			inputTextBox->Text = "+";
+			sign = "+";
+
+		}
 	}
 
-	System::Void MyForm::button0_Click(System::Object ^sender, System::EventArgs ^e) {
-		textBox1->Text = textBox1->Text + "0";
+	System::Void MyForm::btnSub_Click(System::Object ^sender, System::EventArgs ^e) {
+		if (inputTextBox->Text != "") {
 
+			num1 = System::Convert::ToDouble(inputTextBox->Text);
+			inputTextBox->Text = "-";
+			sign = "-";
+
+		}
+	}
+
+	System::Void MyForm::btnDivide_Click(System::Object ^sender, System::EventArgs ^e) {
+		if (inputTextBox->Text != "") {
+
+			num1 = System::Convert::ToDouble(inputTextBox->Text);
+			inputTextBox->Text = "/";
+			sign = "/";
+
+		}
+	}
+
+	System::Void MyForm::btnMultiply_Click(System::Object ^sender, System::EventArgs ^e) {
+		if (inputTextBox->Text != "") {
+
+			num1 = System::Convert::ToDouble(inputTextBox->Text);
+			inputTextBox->Text = "*";
+			sign = "*";
+
+		}
 	}
 
 	System::Void MyForm::buttonClear_Click(System::Object ^sender, System::EventArgs ^e) {
 	}
 
-	System::Void MyForm::btnadd_Click(System::Object ^sender, System::EventArgs ^e) {
-		if (textBox1->Text != "") {
-			num1 = System::Convert::ToDouble(textBox1->Text);
-			textBox1->Text = "+";
-			sign = "+";
-		}
+	System::Void MyForm::buttonEqual_Click(System::Object ^sender, System::EventArgs ^e) {
+		double result = 0;
 
-	}
+		if (sign == "+" && inputTextBox->Text != "") {
 
-	System::Void MyForm::btnsub_Click(System::Object ^sender, System::EventArgs ^e) {
-		if (textBox1->Text != "") {
-			num1 = System::Convert::ToDouble(textBox1->Text);
-			textBox1->Text = "-";
-			sign = "-";
-		}
-
-	}
-
-	System::Void MyForm::btnMulti_Click(System::Object ^sender, System::EventArgs ^e) {
-		if (textBox1->Text != "") {
-			num1 = System::Convert::ToDouble(textBox1->Text);
-			textBox1->Text = "*";
-			sign = "*";
-		}
-
-	}
-
-	System::Void MyForm::btnDivide_Click(System::Object ^sender, System::EventArgs ^e) {
-		if (textBox1->Text != "") {
-			num1 = System::Convert::ToDouble(textBox1->Text);
-			textBox1->Text = "/";
-			sign = "/";
-
-		}
-
-	}
-
-	System::Void MyForm::button12_Click(System::Object ^sender, System::EventArgs ^e) {
-		double result;
-		if (sign == "+" && textBox1->Text != "") {
-
-			num2 = System::Convert::ToDouble(textBox1->Text);
+			num2 = System::Convert::ToDouble(inputTextBox->Text);
 			result = num1 + num2;
-			textBox1->Text = System::Convert::ToString(result);
+			inputTextBox->Text = System::Convert::ToString(result);
 
-		} else if (sign == "-" && textBox1->Text != "") {
+		} else if (sign == "-" && inputTextBox->Text != "") {
 
-			num2 = System::Convert::ToDouble(textBox1->Text);
+			num2 = System::Convert::ToDouble(inputTextBox->Text);
 			result = num1 - num2;
-			textBox1->Text = System::Convert::ToString(result);
+			inputTextBox->Text = System::Convert::ToString(result);
 
-		} else if (sign == "*" && textBox1->Text != "") {
+		} else if (sign == "*" && inputTextBox->Text != "") {
 
-			num2 = System::Convert::ToDouble(textBox1->Text);
+			num2 = System::Convert::ToDouble(inputTextBox->Text);
 			result = num1 * num2;
-			textBox1->Text = System::Convert::ToString(result);
+			inputTextBox->Text = System::Convert::ToString(result);
 
-		} else if (sign == "/" && textBox1->Text != "") {
+		} else if (sign == "/" && inputTextBox->Text != "") {
 
-			num2 = System::Convert::ToDouble(textBox1->Text);
+			num2 = System::Convert::ToDouble(inputTextBox->Text);
 			result = num1 / num2;
-			textBox1->Text = System::Convert::ToString(result);
+			inputTextBox->Text = System::Convert::ToString(result);
 
 		}
 
 	}
+#pragma endregion
 
-	System::Void MyForm::textBox1_TextChanged(System::Object ^sender, System::EventArgs ^e) {
+#pragma region // Other stuff's callbacks.
+	System::Void MyForm::inputTextBox_TextChanged(System::Object ^sender, System::EventArgs ^e) {
 	}
+#pragma endregion
+#pragma endregion
 
 }
